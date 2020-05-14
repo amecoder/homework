@@ -25,7 +25,7 @@
  
  2. 사용자의 비밀번호는 password_hash, password_verity 함수를 사용하여 처리하였습니다.
  
- 3. Web과 App에서 모두 사용한 API를 설계하기 위해서 OAuth또는 그에 준하는 인증키를 발급과 같은 인증을 두는 것이 좋아보입니다. Session은 웹 기준으로만 사용할 수 있습니다.
+ 3. Web과 App에서 모두 사용한 API를 설계하기 위해서 OAuth또는 그에 준하는 키 발급과 같은 인증을 두는 것이 좋아보입니다. Session은 웹 기준으로만 사용할 수 있습니다.
  
  4. Timezone을 고려한 결제일시 처리에 대해서는 DB저장 시 UTC기준으로 INSERT, SELECT 기준 KST로 변경하는 방법이 있습니다. 혹은 timestamp 값으로 저장하는 방법도 있습니다. 보통은 php.ini timezone 설정 기준으로 처리하게 됩니다.
  
