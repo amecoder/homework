@@ -15,7 +15,7 @@
  4. 데이터 베이스 Master - Replication 구성에 대한 처리는 Create, Update, Delete 처리에 대해서는 Master DB에 접속하여 처리하게 하고, Select에 대해서는 Replication 서버에 접속하여 처리하게 해야합니다. codeigniter의 경우 core(Model)에 재정의 해서 사용하면 됩니다. 예를 들면 마스터 DB는 $this->mdb, Replication DB는 $this->sdb 와 같이 구분합니다.
 
 ## 2.2 API를 쉽게 이해할 수 있는 문서 작성
- 1. node apiDoc 패키지를 이용하여 문서를 자동 생성하였습니다. apiDoc 디렉토리 이하의 index.html 문서입니다.
+ 1. node apiDoc 패키지를 이용하여 문서를 자동 생성하였습니다. apiDoc 디렉토리 이하의 index.html 문서입니다. Swagger는 사용해보지 않았습니다.
  
 ## 2.3 테이블 설계
  1. homework.sql 내용을 참고해주시기 바랍니다.
@@ -27,9 +27,12 @@
  
  3. Web과 App에서 모두 사용한 API를 설계하기 위해서 OAuth또는 그에 준하는 인증키를 발급과 같은 인증을 두는 것이 좋아보입니다. Session은 웹 기준으로만 사용할 수 있습니다.
  
- 4. Timezone을 고려한 결제일시 처리에 대해서는 DB저장 시 UTC기준으로 INSERT, SELECT 기준 KST로 변경하는 방법이 있습니다. 혹은 timestamp 기준으로 정하여도 됩니다. 그게 아니라면 보통은 php.ini timezone 설정 기준으로 처리하게 됩니다.
+ 4. Timezone을 고려한 결제일시 처리에 대해서는 DB저장 시 UTC기준으로 INSERT, SELECT 기준 KST로 변경하는 방법이 있습니다. 혹은 timestamp 값으로 저장하는 방법도 있습니다. 보통은 php.ini timezone 설정 기준으로 처리하게 됩니다.
  
  5. 여러회원 목록 조회시 index를 참조하여 조회할 수 있도록 쿼리를 구성해야 합니다. 이름,이메일 <- 여기에 index key를 설정하면 보다 빠르게 조회할 수 있습니다. 각 회원의 마지막 주문 정보는 sub query join 또는 기타 join 조건들을 검토하여 조회 해야합니다. (explain 사용하며 최적화)
  
-
-# 만족스러운 답변을 드리지 못하여 죄송하게 생각합니다. 수고하세요!
+ 6. 페이지네이션은 기본적으로 LIMIT + OFFSET, ORDER BY로 설정 합니다.
+ 
+ 
+ 
+# 만족스러운 답변을 드리지 못하여 죄송하게 생각합니다. 
